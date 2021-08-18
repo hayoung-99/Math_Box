@@ -1,0 +1,7 @@
+유닉스 커맨드 라인에 'git init'을 치면
+Initialized empty Git repository in C:/Users/user/Documents/MathTool/.git/
+위와 같은 문구가 출력되며 비어있는 repository를 생성한다. 이로써 git을 통해 버전관리가 가능케 한다.
+
+이후 커맨드 라인에 'ls -al'을 치면
+drwxr-xr-x 1 user 197609   0 Aug 18 14:17  .git/
+의 문구가 출력되고, .git이라는 repository가 생성되었음을 알 수 있다.

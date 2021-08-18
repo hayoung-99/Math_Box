@@ -1,0 +1,33 @@
+1. 이전에 add를 한 이후 수정된 파일들 또한 commit하려면 또 add 작업을 해줘야 함.
+
+2. 그런데 변경한 것을 반영하지 않고 이전 버전을 그대로 쓰고 싶은 경우가 있는데, 이러면 add를 하지 않으면 된다. 
+
+즉 일부 수정 파일을 add하고, 일부 수정 파일을 add하지 않았을 경우에 (모든 파일들은 이전에 add를 한 번씩 했음을 가정한다.) 커맨드에 git status를 치면 아래와 같은 결과 예시가 뜬다.
+
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   1. git - repository & commit
+        new file:   "2. repository \353\247\214\353\223\244\352\270\260"
+        new file:   "3. \354\262\253 commit \355\225\264\353\263\264\352\270\260"
+        modified:   calculator.py
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   "3. \354\262\253 commit \355\225\264\353\263\264\352\270\260"
+        modified:   License
+
+1) Changes to be committed 구역
+: commit에 반영될 변경사항들을 나타낸다.
+
+2) Changes not staged for commit 구열
+: commit에 반영되지 않는 변경사항들을 나타낸다. 
+
+이러한 git status 커맨드를 통해 실제 commit하기 이전, 내가 반영하고자 하는 수정 파일 및 새 파일들이 모두 staging area에 있는지 확인하는 것이 좋다.
+
+3. git status 커맨드는 모든 파일들이 staging area에 있어야만 정상적으로 실행된다.
+
+4. 파일뿐만 아니라 디렉토리도 commit할 수 있다. 이 때는 디렉토리 하위 파일을 add하는 게 아니라 디렉토리 이름으로 add를 하더라도 그의 하위 파일까지 모두 commit할 수 있다.
+
+5. commit할 파일들을 일일히 add하는 것을 불편하다. 이 외에 변경된 파일들을 한꺼번에 staging area에 둘 수 있는 방법이 있다.

@@ -1,0 +1,31 @@
+현재의 작업중인 프로젝트를 commit하기 위해선 우선 commit하는 사람이 누구인지 git에게 알려줘야 한다. 협업을 하는 거라면 누가 commit을 했는지 구별하기 위해 꼭 남겨두는 것이 좋으며, git은 이를 강제하고 있다.
+
+@이름과 이메일 주소를 설정하기 
+$ git config user.name "hayoung Na" --> 유저 네임
+$ git config user.email "nhy990130@gmail.com" --> 유저 이메일
+
+@commit에 필요한 것 - 1. 이름 2. 이메일 3. commit에 대한 정보(어떤 변경 사항으로 인해 commit을 한 건지에 대한 등. 이를 commit message라고도 한다)
+3. commit에 대한 정보는 터미널의 커맨드 라인에서 옵션 -m을 통해 추가할 수 있다.
+ex) git commit -m "정보"
+
+@commit을 실행하려다가 "nothing added to commit but untracked~"라는 에러 문구가 출력되는 경우가 있다. 
+여기서의 untracked는 git으로 아직 무언가를 해주지 않아 git에 의해 아직 추적되지 않고 있다, 즉 버전 관리의 대상이 아님을 뜻한다. 또한 commit하기 위해서는 commit할 파일을 미리 지정해줘야 하는데, 수정된 파일 또는 추가된 파일을 commit에 포함될 것이라고 지정해줘야 한다. 이러한 사적 작업을 여기서 'add'로 표현한다.
+ex) git add claculator.py --> 파이썬 파일이 이제부터 commit에 반영될 파일로 지정되었다.
+
+위처럼 git add 작업을 통해 commit할 파일들을 지정해준뒤, 
+$ git commit -m "Create calculator.py and License"
+위와 같은 문구를 커맨드 라인에 쳐주면 아래와 같은 결과가 출력된다.
+
+[master (root-commit) 9837a09] Create calculator.py and License --> commit 정보가 출력
+ 2 files changed, 8 insertions(+) --> 전체 파일의 line을 합한 총 8줄이 추가되었음을 출력
+ create mode 100644 License
+ create mode 100644 calculator.py
+
+--> commit이 되었음을 알 수 있다.
+
+@정리
+1. 처음으로 commit을 하기 전 사용자의 이름과 이메일 주소를 설정
+
+2. commit할 파일을 git add로 지정하기
+
+3. git commit & commit 메시지 남기기 (옵션 -m ""을 통해서)
