@@ -1,0 +1,8 @@
+1. local repository의 내용을 remote repository에 반영할 수 있는 커맨드 git push는 remote repository의 주인, 즉 본인만 사용할 수 있는 커맨드이다. 당연히 그렇지 않으면 다름 사람들도 내 remote repository에 commit을 할 수 있게 될 것이다.
+
+2. github 사이트에서 settings - Manage access 카테고리에 들어가면 PUBLIC REPOSITORY가 보일텐데, 이것은 누구나 나의 remote repository 주소만 알면 그 내용을 살펴볼 수 있다는 뜻이다. 그리고 누구든지 나의 remote repository를 자기 컴퓨터로 가져갈 수도 있다는 뜻이다. 
+그러나 이는 여전히 본인이 아닌 이상 그 내용을 git push할 수 없기에 외부에서 수정한 내용을 내 remote repository에 반영할 수 없다.
+
+3. github 사이트에서 settings - Manage access - Invite a collaborator 버튼을 누른다. 거기서 다른 사용자를 collaborator로 초대하면 그 사용자는 제 remote repository에 git push할 수 있는 권한을 가질 수 있다. 
+
+더 자세한 강의 내용은 3-6(6. 아무나 git push를 할 수 있는건 아닙니다) 참고
