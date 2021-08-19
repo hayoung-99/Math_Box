@@ -1,0 +1,2 @@
+1. 처음 기존 로컬 repository를 그대로 github의 remote repository에 저장하는 것은 이전 방법을 쓰면 되고, 전에 remote repository에 저장한 적이 있다면, 그 이후에는 git에 commit을 한 이후 이를 git push 커맨드를 사용하면 remote repository에 반영하게 된다.
+
