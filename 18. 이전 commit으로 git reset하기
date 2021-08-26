@@ -1,0 +1,10 @@
+어떤 시점 이후의 모든 commit들이 맘에 안들거나, 혹은 잘못 commit한 상태로 remote repository에 git push를 했을 때, 이를 삭제하는 방법이 있다.
+
+git reset --hard ID
+: 위 커맨드에서의 commit id는 다시 돌아갈 commit의 id를 입력하면 된다. 
+
+이전에 배웠던 git reset 파일이름 커맨드는 staging area에 있는(즉 add가 되어있는 파일) 파일을 수정 이전의 버전으로 되돌리는 기능을 하는데(즉 add를 취소하는 기능임) 
+이번 단원에서는 --hard 옵션을 부가하여 commit의 head를 바꿈으로써
+working directory의 내용도 과거 시점으로 돌아가게끔 만든다. (즉 지금 만든 파일을 commit하여 현재 head인데, 이걸 전의 commit으로 head를 설정해놓으면 이 파일은 저장하기 이전으로 돌아가버림. 지금은 창을 열어둬서 내용이 삭제안된거 같지만 다 저장해놓고 나가버린다음 head를 바꾸는 작업을 한다면 이 파일은 아마 없어질 것 같음.)
+
+** 실험 결과: 잘못된 commit을 remote repository에 올려놔도, reset --hard로 이전 commit으로 되돌아간 다음, 다시 git push(이 때 에러가 떴는데, --force 옵션으로 해버림)을 하게 되면 이전 commit의 시점으로 반영됨 확인. commit 횟수 또한 줄어든 것을 확인.
