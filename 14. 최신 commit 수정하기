@@ -4,3 +4,5 @@ git commit --amend (amend: 수정하다, 고치다)
 커맨드를 입력하면 나오는 터미널 창에 최신 commit했을 때의 commit 메시지가 적혀 있다. 
 거기에 내가 수정하고 싶은 부분은 찾아 메시지를 다시 쓴 뒤에, esc 키를 누르고 :wq를 입력하여 
 터미널 창을 빠져 나온다. 그 뒤에 최종적으로 remote repository에 git push을 하면 이전에 했던 commit 메시지는 사라지고, 방금 새로 수정한 commit 메시지와 함께 git push가 된다.
+
+*만약 git push를 할 때 에러가 생긴다면 git push --force를 쓴다. 이는 강제로 푸시를 해주는 기능.
