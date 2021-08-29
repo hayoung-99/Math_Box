@@ -1,0 +1,8 @@
+git reset --옵션 commitID
+
+: 지금까지 배운 commitID에는 commit ID의 전체 문자열이나 혹은 앞의 4글자를 쓰라고 배웠는데,
+HEAD를 이용해 head를 바꿀 수 있다.
+
+1. HEAD^ : 현재 HEAD가 가리키고 있는 commit의 "바로 이전 commit"을 나타낸다.
+
+2. HEAD~2 : 현재 HEAD가 가리키는 commit보다 2단계 전에 있는 commit을 나타냄. 즉 현재 HEAD가 6번 commit을 가리킨다면 HEAD~2는 4번 commit을 가리킴
