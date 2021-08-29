@@ -1,0 +1,13 @@
+1. git reset 뒤에 올 수 있는 옵션으로 hard/mixed/soft가 있다.
+
+git reset [옵션] commitID	working directory	staging area		repository
+--------------------------------------------------------------------------------------------
+
+--soft						(안 바뀜)			(안 바뀜)			(head가 commitID 가리킴)
+
+--mixed						(안 바뀜)			(commitID 커밋 시점) (head가 commitID 가리킴)
+
+--hard						(commitID 커밋 시점) (commitID 커밋 시점) (head가 commitID 가리킴)
+
+: 이전 단원에서 배운 '이전 commit으로 돌아가기'에선 옵션 --hard를 사용했으나 이는 권장하지 X
+이는 working directory의 내용까지 전 시점의 commit으로 돌아가기 때문에 작업 과정에서 혼란 야기함
