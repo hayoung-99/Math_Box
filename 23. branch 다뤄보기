@@ -1,0 +1,10 @@
+[git branch]
+: 현재 있는 모든 branch 이름들을 출력. 그리고 현재 어느 branch에 있는지를 해당 branch의 왼쪽에 별 표시로 알려줌
+
+[git branch -d 브랜치이름]
+: 기존에 있는 branch를 삭제
+
+[git checkout -b 브랜치이름]
+: 새로운 branch를 만듦과 동시에 그 branch로 이동
+
+* 실행 결과) 삭제 시에 현재 삭제하려는 branch에 있으면 삭제가 안됨
