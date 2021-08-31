@@ -1,0 +1,8 @@
+앞서 merge할 때 일어나는 conflict를 코드를 수정하여 commit함으로써 해결했는데,
+또는 merge를 취소함으로써 conflict를 해결하는 방법도 있다.
+
+[git merge --abort]
+: 위의 커맨드를 입력하면 현재 conflict 문제에서 나와 merge하기 이전의 형태로 돌아간다. 
+
+참고) 한 branch에서 이것저것 파일을 수정한 다음, 그 중에서 일부 파일만을 다른 branch로 병합하고 싶은 경우도 있을 것이다. 그런 경우 다른 커맨드를 이용하는데, 이는 아래의 사이트 참고하기
+https://junhobaik.github.io/git-specific-files-merge/
