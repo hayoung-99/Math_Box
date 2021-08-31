@@ -1,0 +1,6 @@
+[git merge 브랜치이름]
+: [브랜치이름]에서 했던 commit을 그대로 현재 있는 branch에 가져올 수 있다. = merge
+
+: 위 커맨드를 실행하면 merge할 때 merge commit이라는 새로운 commit이 생긴다. 따라서 commit 메시지를 남기라는 창이 뜰 것이고, 거기에 따로 메시지를 쓰던가, 아니면 그대로 :wq로 저장
+
+: 성공적으로 merge가 되면, 다른 branch에 있던 commit의 내용을 현재 위치의 branch에서 그대로 그 내용이 담겨 있다.
