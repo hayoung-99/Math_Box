@@ -1,0 +1,13 @@
+[git checkout]
+: 이 커맨드는 다른 branch로 이동할 때 쓰이는 커맨드로 알고 있는데, 더 정확히 말하자면 'checkout ~'뒤에 나오는 부분으로 HEAD를 이동시키는 커맨드이다.
+
+ex) [git checkout main] -> branch이름이 뒤에 오는 경우
+: main 브랜치로 HEAD가 가리키게 하라
+
+ex) [git checkout commitID] -> commit ID가 뒤에 오는 경우
+: commit ID로 HEAD가 가리키게 하라. *원래 기본으로 HEAD가 branch를 가리키고, branch가 commit을 가리켜 결국 간접적으로 HEAD가 commit을 가리키도록 하는데, 위 커맨드를 이용하면 HEAD가 더 이상 branch를 통해 간접적으로 commit을 접근하는 것이 아니라, '직접' HEAD가 commit을 가리키도록 만들 수 있다. 
+
+: 이 커맨드는 어디에 사용될까? 이미 commit이 여러 차례 진행된 이후, 나중에 과거의 어느 시점의 commit에서 branch를 새로 만들어 분기하고 싶은 경우 그렇게 한다. 기존 branch는 이미 최근 마지막 commit을 가리킬 것이고, 새로운 branch를 과거 시점의 commit에서부터 만들려고 일부러 기존 branch를 과거 commit 시점으로 돌아가는 불편한 방법 외에 HEAD만 과거 시점의 commit으로 이동하여 그 과거 시점에서 새로운 branch를 생성할 수 있게 한다. 
+
+[git reset] vs. [git checkout]
+: 위 설명에서 말했듯이 git reset을 이용하면 branch가 과거 commit을 가리켜 자동으로 HEAD도 과거 시점의 commit을 가리키는 branch를 가리키므로 간접적으로 HEAD가 과거 commit을 가리키는 것이고, git checkout을 사용하면 HEAD 자체가 다른 commit이나 branch를 가리키도록 하는 기능을 한다. 즉 branch를 통해 HEAD가 간접/직접으로 commit을 접근하느냐가 차이점.
