@@ -1,0 +1,17 @@
+branch merge를 하다가 conflict가 발생하는 경우도 있다. 
+
+ex) main branch에는 			premium branch에는
+divide_main(a, b):			divide_premium(a, b):
+	return a/b 					return a/b
+
+위처럼 설정해놓고 premium branch에서 [git merge main]을 실행하면 conflict가 발생했다는 문구가 뜸
+
+git merge를 실행할 때 conflict가 발생한 경우
+1) conflict가 발생한 파일을 연다.
+2) merge의 결과가 되었으면 하는 모습대로 코드를 수정한다.
+3) commit을 한다.	
+
+즉 위의 방식대로 예시를 고쳐보자면, conflict가 calculator.py 파일에서 발생했다고 문구가 뜨므로 그 파일을 open한 뒤, open하고 나면 기존 코드와는 다른 git에서 자동으로 만들어놓은 confilct 위치를 찾아서, 해당 부분에서 내가 어떤 식으로 merge의 결과가 되었으면 하는가 대로 코드를 수정한 뒤, 다시 터미널로 돌아가 commit을 수행한다.
+* 여기서 merge를 할려면 main branch에서 만든 divide_main 함수를 그대로 써야할거라 생각했지만, 이렇게 해도 되고, 또는 아예 새로운 이름으로 만들어도 괜찮다.
+
+참고) merge하기 위해 수정한 파일은 commit을 해야만 다른 branch로 이동할 수 있다. 즉 main branch에서 수정한 파일을 premium branch에도 merge를 통해 똑같이 적용하려면 main branch에서 수정했던 그 파일을 commit에 올려놔야만 premium branch로 이동할 수 있다.
