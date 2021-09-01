@@ -1,0 +1,9 @@
+새로운 branch를 생성하고 나서 이를 remote repository에 push하려면
+이전처럼 [git push]로 바로 push를 할 수 있는게 아니라
+어느 remote repository에 push를 할 것인지 연결을 시켜줘야 한다. 
+
+[git push --set-upstream origin premium]
+: 위 커맨드대로 실행하면 되는데, 여기서 origin은 연결하려는 remote repository를 우리가 이전에 main branch에 연결작업을 해줄 때 그 github 주소를 origin이라고 붙여준 것이고, 
+이를 premium에 upstream이라는 커맨드로 연결을 시켰다. 
+
+: 즉 이러고 나서 이후엔 git push 커맨드만으로 계속해서 push할 수 있다.
