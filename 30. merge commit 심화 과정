@@ -1,0 +1,34 @@
+merge commit에 대해 더 알아보자면...
+
+merge를 하게 되면 보통 새로운 commit, 즉 merge commit이 생성되는데, 이는 꼭 merge를 한다고해서 새로운 commit이 생기는 것은 아니다. 
+
+ex) master 브랜치와 premium 브랜치가 있다고 하자. 현재 둘의 commit은 다른 내용이고, master 브랜치에서 premium 브랜치를 merge한다고 하면, 우리가 알고 있듯이 여기서 premium의 내용과 merge된 새로운 commit이 master 브랜치에서 가장 최신의 commit으로 생성될 것이다. (conflict가 나지 않는다는 가정 하에)
+
+그러나, 애초에 이 둘의 브랜치가 분기되지 않고, 한 way로 쭉 두 branch가 존재한다면 commit은 그대로이다. 
+ex) commit 1 --- commit 2 --- commit 3(master) --- commit 4 --- commit 5(premium)
+위의 그림과 같이 한 line 상에 두 branch가 존재할 때, master 브랜치에서 premium 브랜치를 merge할 경우, 아래의 결과가 된다. 
+
+ex) commit 1 --- commit 2 --- commit 3 --- commit 4 --- commit 5(master/premium)
+
+: 즉 같은 line 상에 두 개의 branch가 있는 경우, 두 브랜치를 commit한다고 해서 master 브랜치에서 premium 브랜치 line과는 다른 line으로 분기되는 commit이 발생하는 것이 아니라, premium 브랜치가 가리키는 commit을 master 브랜치가 똑같이 가리키게 되는 형태가 된다. 
+이러한 경우를 "Fast-forward merge"라고 한다.  
+
+반대로, 우리가 흔히 알고 있듯이 서로 분기되어 갈라진 두 브랜치가 merge되어 새로운 commit을 만드는 경우를 "3-way merge"라고 한다.
+
+이러한 3-way merge의 경우 merge의 결과가 두 브랜치의 commit 내용이 어떠냐에 따라 달라지는데, 아래의 표를 참고하자. 
+
+두 개의 branch가 분기되는 바로 직전의 commit을 base, 이후 두갈래 분기된 각각의 branch가 가리키는 각각의 마지막 commit들을 master, premium이라고 하자.
+
+각 아래의 상황에서 master 브랜치에서 premium 브랜치를 merge할 때의 결과는 아래와 같다.
+
+(1) base의 내용: A 	master의 내용: A 	premium의 내용: B
+merge 결과: B. 왜? base를 기준으로 볼 때, master는 변화가 없지만 premium에서 변화가 생겼으므로 변화가 생긴쪽을 우선 채택하기 때문에 따라서 결과는 'B'
+
+(2) base의 내용: A 	master의 내용: B  	premium의 내용: A
+merge 결과: B. 왜? (1)에서 설명한 것과 같이 base를 기준으로, 변화가 있는 쪽을 채택하므로 결과는 'B'이다.
+
+(3) base의 내용: 'hello' 	master의 내용: (공백) 	premium의 내용: 'hello'
+merge 결과: (공백). 왜? 같은 이유에서 변화가 발생한 쪽을 채택하기 때문이다.
+
+(4) base의 내용: 'bye' 	master의 내용: 'fighting' 	premium의 내용: 'please'
+merge 결과: conflict 발생. 왜? base를 기준으로 두 branch의 commit 내용이 모두 변경되었기 때문에 무엇으로 merge할지를 git에서 모르기 때문에 이 때는 사용자가 직접 수정해줘야 한다.
