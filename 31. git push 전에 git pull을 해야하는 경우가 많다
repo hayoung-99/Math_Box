@@ -1,0 +1,12 @@
+개인 로컬 repository에 수정한 내용이 있고, 
+또 동료 로컬 repository에 또다른 수정한 내용을 remote repository에 [git push]로 수정한 내용을 반영했을 때,
+내 로컬 repository에서 수정한 내용을 remote repository에 [git push]하면 error가 발생한다.
+
+이 때의 error란, 다른 동료가 해놓은 작업을 내가 [git push]해놓음으로써 동료의 작업물을 덮어쓰기가 된다는 위험으로 인한 error를 뜻한다.
+
+이럴 땐 어떻게 해야 할까?
+
+step 1. 일단 remote repostory의 내용을 [git pull]로 가져옴으로써 내 로컬 repository의 내용에 반영해야 한다. 그런데 [git pull]을 하다가 간혹 conflict가 발생하게 된다. 주의할 점은 [git pull]로 remote repository의 기존 base에서 동료가 수정한 내용만을 가져와 "내 로컬 repository에서 수정한 내용과 merge하기까지의 과정"이다. 
+이 때 간혹 merge하는 부분에서 base와, 내가 수정한 부분, 동료가 수정한 부분이 모두 다를 경우 conflict가 발생. 
+
+step 2. conflict를 해결한다. 우선 conflict가 발생한 파일로 들어가 내가 최종적으로 어떻게 수정할 지 정한 다음 add 및 commit을 한다. 그러면 새로운 하나의 commit이 생기고(3-way이므로) 이를 git push하면 "동료의 수정한 부분을 내가 확실히 알고 넘어간 뒤, 이를 다시 추가적으로 내가 수정한 것과 함께 commit하는 것"이다.
