@@ -1,0 +1,11 @@
+git reset으로 과거 commit을 돌아간다고 해서 그 시점 이후의 commit들이 모두 사라지는 것이 아니다.
+아직 남아 있으며, 마찬가지로 [git reset]을 통해 다시 기존 commit으로 돌아갈 수 있다.
+
+[git reflog]
+: 이 커맨드는 HEAD가 가리켰던 commit들 기록을 보여주는 기능을 한다.
+: 내가 최신 commit에서 어느 특정 과거 commit으로 git reset --hard를 통해 넘어감과 동시에, 다시 최신 commit으로 가고 싶으나 commit ID를 모르는 경우, 이 때 [git reflog]를 통해 git reset을 실행하기 이전 HEAD가 최신 commit을 가리켰으므로 최신 commit의 ID를 알아낼 수 있다. 아래의 예시처럼 말이다.
+
+902e821 (HEAD -> main) HEAD@{0}: reset: moving to 902e
+e7b8dae (origin/main) HEAD@{1}: commit: Learn how to cancel consecutive commits using 'git revert'
+-> 위 문장은 [git reflog] 커맨드를 실행했을 때 순차적으로 나온 출력물의 순서 일부이다.
+즉 최신 commit은 e7b8의 ID를 갖는 commit이었고, 내가 과거 902e라는 ID의 과거 commit으로 git reset을 통해 이동했기 때문에 commit을 (간접적으로) 가리키는 HEAD는 e7b8 -> 902e로 바뀌었다. 따라서 내가 과거 commit으로 이동하기 전에 내가 있었던 commit의 ID는 e7b8임을 알 수 있다. 그래서 다시 [git reset --hard e7b8]을 입력해주면 다시 처음으로 아무 변화없이 돌아올 수 있다.
