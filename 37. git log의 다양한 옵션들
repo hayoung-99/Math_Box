@@ -1,0 +1,15 @@
+[git log --pretty=oneline 옵션]
+
+1. --all : 모든 브랜치의 commit history를 보여줌. 그러나 어느 브랜치의 commit인지 구분하기 어려움
+
+2. --graph : commit history가 각 브랜치와의 관계가 잘 드러나도록 "그래프 형식"으로 출력
+
+[git log --pretty=oneline --all --graph]
+: 위처럼 옵션 두개를 붙여서 커맨드를 실행하면 각 브랜치의 commit 내역들이 입체적으로 나오게 된다. 여기서 commit이 분리된 갈래로 이어가다가 좁혀지는 부분이 나오는데, 아래의 예시와 같다.
+
+...
+| *   e00dd41e5eeee72beda3f1eb3e8c8d811ff99d8c Merge branch 'main' into premium
+| |\
+...
+
+이렇게 좁혀지는 부분은 항상 commit이 merge commit이 일어날 때임을 알 수가 있다.
