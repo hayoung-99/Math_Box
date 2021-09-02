@@ -1,0 +1,12 @@
+여러 개의 commit들을 대상으로(연속된 commit들일 경우) 한번에 revert할 수 있는 방법이 있다.
+
+예를 들어 이전에 여러 차례 commit으로 수정해뒀던 README 파일을 초안으로 되돌리려고 할 때 등등. 
+
+[git revert 더과거의 commitID..최근 commitID]
+: 위 커맨드는 만약 README 파일을 수정했던 commit 이력이 연속으로 4, 3, 2(맨오른쪽이 가장 마지막에 README 파일을 수정한 commit) 이렇게 있다면 다음과 같이 커맨드를 입력하여 README 파일을 원고 초안으로 둔다.
+[git revert 1..4] -> 주의할 점은 "2부터 4까지"를 revert하려면 커맨드에서는 "1..4"로 표현해줘야 함. 
+				   -> 또한 README 초안으로 되돌리려고 하는 것이므로 README 파일을 처음 생성한 commit만을 남겨두고 나머지 README 파일을 수정했던 commit들을 되돌려야 한다. 
+
+이렇게 remote repository에 올린 commit을 취소할 때뿐만 아니라 특정 파일을 과거 버전으로 다시 되돌릴 때 [git revert] 커맨드를 사용할 수 있으며, commit ID를 이용해 특정 파일을 과거 버전으로 되돌리는 만큼, commit을 할 때에는 한 가지 작업 단위로 commit해야 함을 배울 수 있음.
+
+실험 결과) 나같은 경우엔 README 파일 수정 commit 내역이 연속으로 이뤄지는 게 아니라 도중도중 설명파일을 commit해놨기 때문에 띄엄띄엄 되돌아갈 commit들이 있었다. 따라서 [git revert (1)..(2)]의 형식으로 연속으로 못돌아가고 나같은 경우엔 commitID를 하나씩만 입력해서 revert해야 하는데, 문득 아예 README 수정을 가장 처음했을 때의 commit ID로 한번에 revert 될 수는 없나 싶어서 해본 결과, 이 때는 error가 났다. 즉 README 파일을 과거 모습으로 되돌아가려면 시간순으로 가장 최근부터 가장 과거 순대로 차례차례 revert를 실행해야 성공적으로 revert가 됨. 
