@@ -1,0 +1,24 @@
+앞서 말했듯이 [git pull]은 remote repositort에서 가져온 내용을 내 local repository의 내용과 merge까지 하는 작업을 한다. 그러나 merge하지 않고 remote repository의 내용을 가져오기만 하는 커맨드도 있다. 
+
+[git fetch]
+: remote repository에 있는 branch의 내용을 "일단 가져와서 살펴본 후에" merge하고 싶을 때 사용함
+
+[git fetch] 실행하고 나서 
+"premium -> origin/premium" 이 줄이 출력되면 remote repository의 branch가 내 로컬 repository로 성공적으로 가져온 것이다.
+
+이후 아래의 커맨드를 입력하여 두 브랜치 간의 차이가 무엇인지 개발자가 확인한다.
+[git diff remium origin/premium] : 두 commit만의 차이 외에도 두 branch 간의 차이를 보고 싶을 때 이 커맨드를 사용할 수 있다. 
+
+이렇게 가져온 remote repository의 내용과 현재 내 로컬 repository의 내용이 무슨 차이가 있는지 확인한 뒤(수정할지 등등), 이를 [git merge]하여 두 내용을 merge한다. (conflict가 발생할 경우 앞서 배운대로 처리)
+즉 예를 들어 내 로컬 repository의 브랜치는 premium이고, remote repository의 브랜치는 origin/premium이므로, 현재 위치가 premium 브랜치에 있다고 하면 [git merge origin/premium] 커맨드를 입력하면 merge를 할 수 있다.
+
+이렇게 merge를 한 다음 add 및 commit을 한다. 
+
+*위의 과정은 다음과 같은 목적을 가짐. 
+- remote repository에서 가져온 branch의 내용을 merge하기 전에 점검해야할 필요가 있을 때
+- remote repository에 있는 branch의 내용이 잘못된 부분이 없는지 검토해야할 때
+- 내가 작성한 코드가 remote repository에 있는 branch의 내용을 merge하기 전에 잘못된 부분이 있는지 검토해야할 때
+
+[git pull] vs. [git fetch]
+: [git pull]은 remote repository의 branch를 검토할 필요없이 바로 합치고 싶을 때
+: [git fetch]는 remote repository의 branch를 검토해야할 때
