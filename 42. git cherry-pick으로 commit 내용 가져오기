@@ -1,0 +1,6 @@
+[git cherry-pick commitID]: 자신이 원하는 작업이 들어있는 commit들만 가져와서 현재의 branch에 추가할 수 있는 기능
+*cherry pick: 자신에게 유익한 것만을 취하는 것
+
+ex) git reset을 한다음 merge로 내용을 합치지 않아도, 다른 branch에서 했던 예전 commit의 내용을 현재 branch로 가져와 그 commit 내용만을 적용하고 싶은 경우에 해당 커맨드를 사용할 수 있다.
+
+위 커맨드를 실행하고 나면 conflict가 발생할 수 있으며, 이 땐 이전에 배운 것처럼 conflict가 발생한 파일로 들어가 그 부분을 직접 수정해주고 add, commit을 해준다. 
