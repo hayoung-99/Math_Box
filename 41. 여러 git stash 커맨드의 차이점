@@ -1,0 +1,7 @@
+[git stash apply] vs. [git stash drop] vs. [git stash pop]
+
+1. [git stash apply]: 특정 아이디의 stack 내용을 불러와 저장한다.
+2. [git stash drop]: 특정 아이디의 stack 내용을 제거한다. 1의 커맨드를 사용했다고 해서 stack에 해당 내용이 사라지는게 아니라 그대로 있으므로 1 다음엔 2 커맨드를 사용할 것
+3. [git stash pop]: 특정 아이디의 stack 내용을 불러와 저장함과 동시에 stack에 해당 아이디의 내용을 제거한다. 
+
+--> 나중에 stack에 있는 내용을 또 쓸일이 없다면 1&2를, 더이상 해당 내용을 쓸 일이 없다면 3을 사용한다. 
